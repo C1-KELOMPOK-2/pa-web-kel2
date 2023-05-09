@@ -16,7 +16,7 @@ $tgl = date('Y-m-d');
 		header("Location:?berhasil=maxsend");
 	}else{
 		$adukan = mysqli_query($conn, "INSERT INTO pengaduan (tgl_pengaduan, nik, isi_laporan, foto, status) VALUES ('$tgl', '$nik', '$isi', '$filename', '1')") or die ("<h1>ILEGAL TEXT DETECTED !</h1><b>TERJADI KESALAHAN PADA SISTEM HARAP HUBUNGI ADMINISTRATOR</b>");
-		$isi_notifikasi = "Pengaduan anda Berhasil dikirim dan segera diproses oleh Petugas.";
+		$isi_notifikasi = "Pengaduan anda telah Berhasil dikirim dan segera diproses oleh Petugas.";
 		$send_notif = mysqli_query($conn, "INSERT INTO notifikasi (nik, notifikasi, tgl) VALUES ('$nik', '$isi_notifikasi', '$tgl')");
 			header("Location:?berhasil=ajukan");
 			

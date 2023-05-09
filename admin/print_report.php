@@ -25,7 +25,7 @@ if (isset($_GET['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Pengaduan</title>
+  <title>Cetak Laporan</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,107 +35,32 @@ if (isset($_GET['logout'])) {
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 </head>
-<style>
-  .bg-wrap .user-logo .img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin: 0 auto;
-    margin-bottom: 10px; }
-  .bg-wrap .user-logo h3 {
-    color: #fff;
-    font-size: 18px; }
-    
 
-</style>
 <body id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-   <!-- Sidebar -->
-   <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(44,231,156,1) 0%, rgba(0,212,255,1) 100%);">
-
-
-      <!-- Sidebar - Brand -->
-      <div class="img bg-wrap text-center py-4" style="background-image: url(images/test.jpg);">
-	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(images/admin.png);"></div>
-	  				<h3 id=nama_ni></h3>
-	  			</div>
-	  		</div>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Home</span></a>
-      </li>
-      
-      
-
- 
-      <!-- Heading -->
-      
-      <li class="nav-item">
-        <a class="nav-link" href="admin.php">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Akun Petugas</span></a>
-      </li>
-
-<li class="nav-item active">
-        <a class="nav-link" href="masyarakat.php">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Akun masyarakat</span></a>
-      </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" id="accordionSidebar">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
-          <!-- Topbar Search -->
-       
-
-        <!-- Topbar Navbar -->
-<?php include("header/topbar.php");?>
-        <!-- End of Topbar -->
-
         <!-- Begin Page Content -->
-        <div class="container-fluid">
+        <div class="mt-4 container-fluid">
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 col-md-8 text-grey-800">Dashboard Admin</h1>
-            
-            <a href="print_report.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-table fa-sm text-white-50"></i> Lihat Laporan</a>
-            <a href="eksel.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> <i class="fas fa-print fa-sm text-white-50"></i>laporan excel</a>
+            <h1 class="h3 mb-0 text-grey-800">Data dan Grafik Pengaduan</h1>
+            <button onclick="window.print();" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-print fa-sm text-white-50"></i> Cetak Laporan</button>
           </div>
-      
-<br>
-<br>
+          <?php 
+
+// menampilkan jam sekarang
+echo date('H:i:s a');
+
+echo "<br/>";
+
+//kombinasi format tanggal dan jam
+echo date('l, d-m-Y');
+
+?>
+<br><br>
           <!-- Content Row -->
           <div class="row">
 
@@ -241,15 +166,15 @@ if (isset($_GET['logout'])) {
                 <div class="card-body">
                   <h4 class="small font-weight-bold">Belum Ditanggapi <span class="float-right"><?= $persenbelumditanggapi."%";?></span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar bg-warning animated--grow-in" role="progressbar" style="width: <?= $persenbelumditanggapi."%";?>" aria-valuenow="<?= $persenbelumditanggapi."%";?>" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: <?= $persenbelumditanggapi."%";?>" aria-valuenow="<?= $persenbelumditanggapi."%";?>" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                   <h4 class="small font-weight-bold">Sedang Diproses <span class="float-right"><?= $persenproses."%";?></span></h4>
                   <div class="progress mb-4">
-                    <div class="progress-bar animated--grow-in" role="progressbar" style="width: <?= $persenproses."%";?>" aria-valuenow="<?= $persenproses."%";?>" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar" role="progressbar" style="width: <?= $persenproses."%";?>" aria-valuenow="<?= $persenproses."%";?>" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                   <h4 class="small font-weight-bold">Pengaduan Selesai <span class="float-right"><?= $persenselesai."%";?></span></h4>
                   <div class="progress">
-                    <div class="progress-bar bg-success animated--grow-in" role="progressbar" style="width: <?= $persenselesai."%";?>" aria-valuenow="<?= $persenselesai."%";?>" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-success" role="progressbar" style="width: <?= $persenselesai."%";?>" aria-valuenow="<?= $persenselesai."%";?>" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>   
@@ -260,6 +185,18 @@ if (isset($_GET['logout'])) {
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">Grafik Lingkaran</h6>
+                  <div class="dropdown no-arrow">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                      <div class="dropdown-header">Dropdown Header:</div>
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                  </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
@@ -291,7 +228,7 @@ if (isset($_GET['logout'])) {
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-        
+       
           </div>
         </div>
       </footer>
@@ -302,30 +239,6 @@ if (isset($_GET['logout'])) {
 
   </div>
   <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="?logout">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>

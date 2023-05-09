@@ -157,7 +157,7 @@ if(isset($_GET['logout'])) {
               <div class="col-lg">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Buat Pengaduan !</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Buat Pengaduan</h1>
                   </div>
                   <form method="post" action="" enctype="multipart/form-data">
                     <div class="form-group">

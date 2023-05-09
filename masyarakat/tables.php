@@ -25,7 +25,7 @@ if (isset($_GET['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Tabel pengaduan</title>
+  <title>Tabel Pengaduan</title>
 
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -136,7 +136,7 @@ if (isset($_GET['logout'])) {
           <!-- DataTales Example -->
           <div class="card shadow mb-4 animated--grow-in">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Riwayat Pengaduan</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Riwayat pengaduan</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">

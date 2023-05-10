@@ -60,7 +60,7 @@ if (isset($_GET['logout'])) {
       <!-- Sidebar - Brand -->
       <div class="img bg-wrap text-center py-4" style="background-image: url(images/test.jpg);">
 	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(images/admin.png);"></div>
+	  				<div class="img" style="background-image: url();"></div>
 	  				<h3 id=nama_ni></h3>
 	  			</div>
 	  		</div>
@@ -86,7 +86,7 @@ if (isset($_GET['logout'])) {
           <span>Akun Petugas</span></a>
       </li>
 
-<li class="nav-item active">
+<li class="nav-item">
         <a class="nav-link" href="masyarakat.php">
           <i class="fas fa-fw fa-user"></i>
           <span>Akun masyarakat</span></a>

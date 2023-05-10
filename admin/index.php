@@ -75,7 +75,11 @@ if (isset($_GET['logout'])) {
           <span>Home</span></a>
       </li>
       
-      
+      <li class="nav-item">
+        <a class="nav-link" href="profil.php">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Profil</span></a>
+      </li>
 
  
       <!-- Heading -->

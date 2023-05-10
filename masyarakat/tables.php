@@ -64,7 +64,7 @@ if (isset($_GET['logout'])) {
       <!-- Sidebar - Brand -->
       <div class="img bg-wrap text-center py-4" style="background-image: url(images/test.jpg);">
 	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(images/admin.png);"></div>
+	  				<div class="img" style="background-image: url();"></div>
 	  				<h3 id=nama_ni></h3>
 	  			</div>
 	  		</div>
@@ -73,7 +73,7 @@ if (isset($_GET['logout'])) {
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Home</span></a>

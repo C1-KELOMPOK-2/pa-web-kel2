@@ -292,22 +292,22 @@ a:active {
 }
 
 .carousel-item1 {
-    background: -o-linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('./img/ok.jpg');
-    background: linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('./img/ok.jpg');
+    background: -o-linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('img/Kantor.png');
+    background: linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('img/kantor.png');
     background-size: cover;
     background-position: center;
 }
 
 .carousel-item2 {
-    background: -o-linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('./img/smk7.JPG');
-    background: linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('./img/smk7.JPG');
+    background: -o-linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('img/fotbar.jpg');
+    background: linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('img/fotbar.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .carousel-item3 {
-    background: -o-linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('./img/berbagi.jpg');
-    background: linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('./img/berbagi.jpg');
+    background: -o-linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('img/baris.jpg');
+    background: linear-gradient(45deg, rgba(35, 35, 35, 0.4), rgba(35, 35, 35, 0.7)), url('img/baris.jpg');
     background-size: cover;
     background-position: center;
 }

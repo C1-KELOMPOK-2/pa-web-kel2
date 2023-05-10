@@ -133,15 +133,17 @@ if (isset($_POST['submit'])) {
                                 <input type="text" name="telp" id="name" placeholder="telponmuuuu"/>
                             </div>
                             <div class="form-group">
-                                <span>masukan foto/ktp</span>
+                                <span>masukan foto anda</span>
                                
                                 <input required="required" type="file" name="gambar" class="form-control-file" id="gambar" aria-describedby="gambarHelp" accept="image/*">
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+              
                             </div>
-                                <input type="hidden" name="role" id="name" placeholder="telponmuuuu"/>
+                            <input type="hidden" name="role" id="role" class="agree-term" value="masyarakat"/>
+                           
+                           
                            
                             <div class="form-group form-button">
                                 <input type="submit" name="submit" id="signup" class="form-submit" value="Register"/>

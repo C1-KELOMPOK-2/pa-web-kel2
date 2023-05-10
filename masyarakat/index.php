@@ -61,7 +61,7 @@ if (isset($_GET['logout'])) {
       <!-- Sidebar - Brand -->
       <div class="img bg-wrap text-center py-4" style="background-image: url(images/test.jpg);">
 	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(images/admin.png);"></div>
+	  				<div class="img" style="background-image: url();"></div>
 	  				<h3 id=nama_ni></h3>
 	  			</div>
 	  		</div>
@@ -87,7 +87,7 @@ if (isset($_GET['logout'])) {
           <span>Ajukan pengaduan</span></a>
       </li>
 
-<li class="nav-item active">
+<li class="nav-item">
         <a class="nav-link" href="tables.php">
           <i class="fas fa-fw fa-user"></i>
           <span>riwayat pengaduan</span></a>
@@ -131,7 +131,7 @@ if (isset($_GET['logout'])) {
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard Pengaduan</h1>
+            <h1 class="h3 mb-0 text-gray-800">Dashboard Masyarakat</h1>
           </div>
           <!-- Content Row -->
           <div class="row">

@@ -1,8 +1,12 @@
-# masih progres
+# APLIKASI PENGADUAN MASYARAKAT
 
 KELOMPOK 2 C1
-
-APLIKASI PENGADUAN MASYARAKAT
+Ardita Dyah Paramita (2109116089)
+Elfrida Simanjuntak (210911093)
+Muhammad Harist Illyasa (2109116101)
 
 1. USE CASE
 
+
+
+2. ERD

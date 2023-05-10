@@ -68,29 +68,33 @@ if (isset($_GET['logout'])) {
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="index.php">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Home</span></a>
-      </li>
-      
-      
+<!-- Nav Item - Dashboard -->
+<li class="nav-item active">
+  <a class="nav-link" href="index.php">
+    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <span>Home</span></a>
+</li>
 
- 
-      <!-- Heading -->
-      
-      <li class="nav-item">
-        <a class="nav-link" href="pengaduan.php">
-          <i class="fas fa-fw fa-user"></i>
-          <span>proses pengaduan</span></a>
-      </li>
 
 <li class="nav-item">
-        <a class="nav-link" href="tanggapan.php">
-          <i class="fas fa-fw fa-user"></i>
-          <span>tanggapi pengaduan</span></a>
-      </li>
+  <a class="nav-link" href="profil.php">
+    <i class="fas fa-fw fa-tachometer-alt"></i>
+    <span>Profil</span></a>
+</li>
+
+<!-- Heading -->
+
+<li class="nav-item">
+  <a class="nav-link" href="pengaduan.php">
+    <i class="fas fa-fw fa-user"></i>
+    <span>proses pengaduan</span></a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="tables.php">
+    <i class="fas fa-fw fa-user"></i>
+    <span>tanggapi pengaduan</span></a>
+</li>
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
 

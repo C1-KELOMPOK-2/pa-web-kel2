@@ -83,7 +83,7 @@ if(isset($_POST['tanggapi'])){
                       <input value="<?php echo $datap['nama'];?>" required="required" type="text" class="form-control form-control-user" id="exampleInputEmail" readonly="readonly" aria-describedby="emailHelp" placeholder="Nama Lengkap">
                     </div>
                     <div class="form-group">
-                      <label>Isi Laporan</label>
+                      <label>Isi laporan</label>
                       <textarea required="required" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" readonly="readonly" placeholder="Isi Pengaduan"><?php echo $datap['isi_laporan'];?></textarea>
                     </div><hr/>
                     <div class="form-group">

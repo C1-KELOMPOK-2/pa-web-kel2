@@ -2,7 +2,7 @@
 session_start();
 require "../koneksi.php";
 
-// Periksa apakah pengguna telah login sebagai admin
+// Periksa apakah pengguna telah login sebagai petugas
 if ($_SESSION['role'] !== 'petugas') {
   header('Location: ../login.php');
   exit();
@@ -25,20 +25,16 @@ if (isset($_GET['logout'])) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Tabel Pengaduan</title>
+  <title>Pengaduan</title>
 
-  <!-- Custom fonts for this template -->
+  <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
+  <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-
 </head>
-
 <style>
   .bg-wrap .user-logo .img {
     width: 100px;
@@ -49,7 +45,88 @@ if (isset($_GET['logout'])) {
   .bg-wrap .user-logo h3 {
     color: #fff;
     font-size: 18px; }
-    
+    *{
+
+margin: 0;
+
+padding: 0;
+
+box-sizing: border-box;
+
+list-style: none;
+
+font-family: ‘Josefin Sans’, sans-serif;
+
+}
+
+
+h2 {
+  font-
+}
+
+.wrapper .left{
+
+  width: 40%;
+
+  background: linear-gradient(to right,#083885,#086cb3);
+
+  padding: 30px 25px;
+
+  border-top-left-radius: 5px;
+
+  border-bottom-left-radius: 5px;
+
+  text-align: center;
+
+  color: #fff;
+
+}
+
+
+.wrapper .left img{
+
+  border-radius: 5px;
+
+  margin-bottom: 10px;
+
+}
+
+
+.wrapper .left h4{
+
+  margin-bottom: 10px;
+
+  font-size: 20px;
+
+  font-family: sans-serif; 
+
+}
+
+
+.wrapper .left p{
+
+  font-size: 15px;
+
+}
+
+
+.wrapper{
+
+position: absolute;
+
+top: 50%;
+
+left: 50%;
+
+transform: translate(-50%,-50%);
+
+width: 500px;
+
+display: flex;
+
+box-shadow: -10px 5px 20px rgba(0, 0, 0, 0.1);
+
+}
 
 </style>
 <body id="page-top">
@@ -80,10 +157,10 @@ if (isset($_GET['logout'])) {
 </li>
 
 
-<li class="nav-item">
+<li class="nav-item active">
   <a class="nav-link" href="profil.php">
     <i class="fas fa-fw fa-tachometer-alt"></i>
-    <span>profil</span></a>
+    <span>Profil</span></a>
 </li>
 
 <!-- Heading -->
@@ -91,10 +168,10 @@ if (isset($_GET['logout'])) {
 <li class="nav-item">
   <a class="nav-link" href="pengaduan.php">
     <i class="fas fa-fw fa-user"></i>
-    <span>Proses pengaduan</span></a>
+    <span>Proses Pengaduan</span></a>
 </li>
 
-<li class="nav-item active">
+<li class="nav-item">
   <a class="nav-link" href="tables.php">
     <i class="fas fa-fw fa-user"></i>
     <span>tanggapi pengaduan</span></a>
@@ -125,87 +202,48 @@ if (isset($_GET['logout'])) {
           </button>
 
           <!-- Topbar Search -->
-         
+       
+
         <!-- Topbar Navbar -->
 <?php include("header/topbar.php");?>
         <!-- End of Topbar -->
-        <!-- Page Content  -->
+
+        <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-grey-800">Tabel</h1>
-
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4 animated--grow-in">
-            <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Tabel Pengaduan Masyarakat</h6>
-            </div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                    <th>NO</th>
-                      <th>Tanggal</th>
-                      <th>NAMA</th>
-                      <th>NIK</th>
-                      <th>TELPON</th>
-                      <th>Isi</th>
-                      <th>Foto</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>NO</th>
-                      <th>Tanggal</th>
-                      <th>NAMA</th>
-                      <th>NIK</th>
-                      <th>TELPON</th>
-                      <th>Foto</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-<?php
-$no = 1;
-  $out = mysqli_query($conn, "SELECT * FROM pengaduan inner join masyarakat ON pengaduan.nik=masyarakat.nik where status=1");
-  while($keluar = mysqli_fetch_array($out)){
-?>
-
-                    <tr>
-                      <td><?php echo $no++?></td>
-                      <td><?php echo $keluar['tgl_pengaduan'];?></td>
-                      <td><?php echo $keluar['nama'];?></td>
-                      <td><?php echo $keluar['nik'];?></td>
-                      <td><?php echo $keluar['telp'];?></td>
-                      <td><?php echo $keluar['isi_laporan'];?></td>
-                      <td align="Center"><img src="../uploads/<?php echo $keluar['foto'];?>" style="width: 100px;height: auto;"></td>
-                      <td><a href="tanggapan.php?tanggapi=<?php echo $keluar['id_pengaduan'];?>" class="btn btn-primary">Tanggapi <span class="fas fa-fw fa-pen"></span></a></td>
-                    </tr>
-<?php
-}
-?>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 col-md-8 text-grey-800">Dashboard Petugas</h1>
+            
+            <a href="print_report.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-table fa-sm text-white-50"></i> Lihat Laporan</a>
+            <a href="eksel.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> <i class="fas fa-print fa-sm text-white-50"></i>laporan excel</a>
           </div>
+      
+<br>
+<br>
+          <!-- Content Row -->
+         
+          <!-- Content Row -->
+          <div class="row">
+
+<div class="col-xl-8 col-lg-7">
+
+    <!-- Area Chart -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
+        </div>
+        <div class="card-body">
+            <h3>Nama       : <span><?= $_SESSION['nama_petugas'];?></span></h3>
+            <h3>No Telepon : <?= $_SESSION['telp'];?> </h3>
+            <h3>Role       : <?= $_SESSION['role'];?></h3>
 
         </div>
-        <!-- /.container-fluid -->
-
-      </div>
+    </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
-          </div>
-        </div>
-      </footer>
+     
       <!-- End of Footer -->
 
     </div>
@@ -249,12 +287,75 @@ $no = 1;
   <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script src="vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/datatables-demo.js"></script>
+  <script src="js/demo/chart-area-demo.js"></script>
+  <script src="js/demo/chart-pie-demo.js"></script>
+  <script type="text/javascript">
+  Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+  Chart.defaults.global.defaultFontColor = '#858796';
 
+  // Pie Chart Example
+  var ctx = document.getElementById("bulet");
+  
+  var myPieChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ["Diproses", "Selesai", "Belum ditanggapi"],
+      datasets: [{
+        data: [<?= $persenproses;?>, <?= $persenselesai;?>, <?= $persenbelumditanggapi;?>],
+        backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],
+        hoverBackgroundColor: ['#2e59d9', '#17a673', '#f6c25e'],
+        hoverBorderColor: "rgba(234, 236, 244, 1)",
+      }],
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips: {
+        backgroundColor: "rgb(255,255,255)",
+        bodyFontColor: "#858796",
+        borderColor: '#dddfeb',
+        borderWidth: 1,
+        xPadding: 15,
+        yPadding: 15,
+        displayColors: false,
+        caretPadding: 10,
+      },
+      legend: {
+        display: false
+      },
+      cutoutPercentage: 80,
+    },
+  });
+
+  </script>
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

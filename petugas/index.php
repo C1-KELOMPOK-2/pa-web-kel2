@@ -60,7 +60,7 @@ if (isset($_GET['logout'])) {
       <!-- Sidebar - Brand -->
       <div class="img bg-wrap text-center py-4" style="background-image: url(images/test.jpg);">
 	  			<div class="user-logo">
-	  				<div class="img" style="background-image: url(images/admin.png);"></div>
+	  				<div class="img" style="background-image: url();"></div>
 	  				<h3 id=nama_ni></h3>
 	  			</div>
 	  		</div>
@@ -86,7 +86,7 @@ if (isset($_GET['logout'])) {
           <span>proses pengaduan</span></a>
       </li>
 
-<li class="nav-item active">
+<li class="nav-item">
         <a class="nav-link" href="tanggapan.php">
           <i class="fas fa-fw fa-user"></i>
           <span>tanggapi pengaduan</span></a>
@@ -131,7 +131,7 @@ if (isset($_GET['logout'])) {
             <h1 class="h3 col-md-8 text-grey-800">Dashboard Petugas</h1>
             
             <a href="print_report.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-table fa-sm text-white-50"></i> Lihat Laporan</a>
-            <a href="print.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> <i class="fas fa-print fa-sm text-white-50"></i>laporan Pdf</a>
+      
             <a href="eksel.php" target="_blank" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"> <i class="fas fa-print fa-sm text-white-50"></i>laporan excel</a>
           </div>
       

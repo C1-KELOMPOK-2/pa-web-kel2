@@ -9,7 +9,7 @@ Muhammad Harist Illyasa (2109116101)
 
 
 1. USE CASE
-![alt text](https://github.com/harist13/pa-web-kel2/blob/main/img/Kantor.png)
+![alt text](https://drive.google.com/file/d/10sC4tuYXsRuAf21dwSAou33VXk0A0pBk/view?usp=share_link)
 
 
 2. ERD

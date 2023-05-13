@@ -21,6 +21,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['username'] = $username;
         $row = mysqli_fetch_assoc($result_admin);
         $_SESSION['nama_petugas'] = $row['nama_petugas'];
+        $_SESSION['telp'] = $row['telp'];
+
         $_SESSION['id_petugas'] = $row['id_petugas'];
 
         header("location: admin/index.php");
@@ -30,6 +32,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 			$row = mysqli_fetch_assoc($result_petugas);
 			$_SESSION['id_petugas'] = $row['id_petugas'];
 			$_SESSION['nama_petugas'] = $row['nama_petugas'];
+        $_SESSION['telp'] = $row['telp'];
+
 			header("location: petugas/index.php");
     } else if (mysqli_num_rows($result_masyarakat) == 1) {
         $_SESSION['role'] = 'masyarakat';
@@ -37,6 +41,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $row = mysqli_fetch_assoc($result_masyarakat);
         $_SESSION['nama'] = $row['nama'];
         $_SESSION['nik'] = $row['nik'];
+        $_SESSION['telp'] = $row['telp'];
+
 
         header("location: masyarakat/index.php");
     } else {

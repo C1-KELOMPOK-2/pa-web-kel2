@@ -85,7 +85,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>register</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="login/fonts/material-icon/css/material-design-iconic-font.min.css">
@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
                     
                     
                     
-                    <h2 class="form-title">registrasi</h2>
+                    <h2 class="form-title">sign up</h2>
 
                         <form method="POST" class="register-form" id="register-form" enctype="multipart/form-data">
                             <div class="form-group">

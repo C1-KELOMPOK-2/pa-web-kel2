@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
                     
                     
                     
-                    <h2 class="form-title">register</h2>
+                    <h2 class="form-title">registrasi</h2>
 
                         <form method="POST" class="register-form" id="register-form" enctype="multipart/form-data">
                             <div class="form-group">

@@ -181,11 +181,10 @@ if(isset($_GET['logout'])) {
   if(isset($_GET['berhasil'])){
     if($_GET['berhasil']=="ajukan"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-primary">Pengaduan anda Berhasil diajukan !</b></center>
-                      </div>
-                    </div>
+                   <script>
+                alert('pengaduan anda telah berhasil diajukan');
+                document.location.href = 'pengaduan.php';
+                </script>
 <?php
     }
   }
@@ -194,11 +193,10 @@ if(isset($_GET['logout'])) {
   if(isset($_GET['berhasil'])){
     if($_GET['berhasil']=="maxsend"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-danger">Pengaduan dibatalkan secara Otomatis, anda hanya dapat mengajukan Pengaduan sekali dalam sehari !</b></center>
-                      </div>
-                    </div>
+                    <script>
+                alert('pengaduan otomatis di batalkan, pengaduan hanya bisa dilakukan sehari sekali !');
+                document.location.href = 'pengaduan.php';
+                </script>
 <?php
     }
   }

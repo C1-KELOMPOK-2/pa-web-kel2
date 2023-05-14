@@ -110,7 +110,7 @@ if (isset($_POST['submit'])) {
                         <form method="POST" class="register-form" id="register-form" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="nama" id="name" placeholder="namamuuu"/>
+                                <input type="text" name="nama" id="name" placeholder="nama anda"/>
                             </div>
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -130,7 +130,7 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="telp" id="name" placeholder="telponmuuuu"/>
+                                <input type="text" name="telp" id="name" placeholder="no telp"/>
                             </div>
                             <div class="form-group">
                                 <span>masukan foto anda</span>

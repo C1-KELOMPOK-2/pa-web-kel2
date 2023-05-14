@@ -84,34 +84,38 @@ function hapus_pengaduan($id)
 function hapus_petugas($id)
 {
 	global $conn;
-	$hapus_tanggapan = mysqli_query($conn, "DELETE FROM petugas where id_petugas='$id' ") or die ("Terjadi Kesalahan");
+	
+	// Menonaktifkan foreign key constraint
+	mysqli_query($conn, 'SET FOREIGN_KEY_CHECKS=0');
+
+	// Menghapus data masyarakat
+	$hapus_petugas = mysqli_query($conn, "DELETE FROM petugas where id_petugas='$id' ") or die ("Terjadi Kesalahan");
+
+	// Mengaktifkan kembali foreign key constraint
+	mysqli_query($conn, 'SET FOREIGN_KEY_CHECKS=1');
 
 	header("Location:?berhasil=proses_hapus");
-	return $hapus_tanggapan;
+	return $hapus_petugas;
 }
 
 function hapus_masyarakat($id)
 {
 	global $conn;
-	$hapus_tanggapan = mysqli_query($conn, "DELETE FROM masyarakat where nik='$id' ") or die ("Terjadi Kesalahan");
+	
+	// Menonaktifkan foreign key constraint
+	mysqli_query($conn, 'SET FOREIGN_KEY_CHECKS=0');
+
+	// Menghapus data masyarakat
+	$hapus_masyarakat = mysqli_query($conn, "DELETE FROM masyarakat where nik='$id' ") or die ("Terjadi Kesalahan");
+
+	// Mengaktifkan kembali foreign key constraint
+	mysqli_query($conn, 'SET FOREIGN_KEY_CHECKS=1');
 
 	header("Location:?berhasil=proses_hapus");
-	return $hapus_tanggapan;
+	return $hapus_masyarakat;
 }
-function nonaktif($id)
-{
-	global $conn;
-	$nonaktifkan_petugas = mysqli_query($conn, "UPDATE petugas set role='nonaktif' where id_petugas='$id'") or die ("Terjadi Kesalahan");
-	header("Location:?berhasil=proses_hapus");
-	return $nonaktifkan_petugas;
-}
-function non($id)
-{
-	global $conn;
-	$nonaktifkan_petugas = mysqli_query($conn, "UPDATE masyarakat set role='nonaktif' where nik='$id'") or die ("Terjadi Kesalahan");
-	header("Location:?berhasil=proses_hapus");
-	return $nonaktifkan_petugas;
-}
+
+
 function proses($id)
 {
 	global $conn;
@@ -119,20 +123,8 @@ function proses($id)
 	header("Location:pengaduan.php?berhasil=sip");
 	return $nonaktifkan_petugas;
 }
-function aktifkan($id)
-{
-	global $conn;
-	$nonaktifkan_petugas = mysqli_query($conn, "UPDATE petugas set role='petugas' where id_petugas='$id'") or die ("Terjadi Kesalahan");
-	header("Location:?berhasil=proses_hapus");
-	return $nonaktifkan_petugas;
-}
-function ap($id)
-{
-	global $conn;
-	$nonaktifkan_petugas = mysqli_query($conn, "UPDATE masyarakat set role='masyarakat' where nik='$id'") or die ("Terjadi Kesalahan");
-	header("Location:?berhasil=proses_hapus");
-	return $nonaktifkan_petugas;
-}
+
+
 function ubah_data_petugas($id_petugas, $nama, $username, $password, $telp, $role)
 {
 	global $conn;
@@ -184,65 +176,9 @@ function update_data_view_user($nik)
 	$_SESSION['data_user'] = $upd;
 	return $upd;
 }
-function ubah_profil($id, $nama, $telp)
-{
-	global $conn;
-	$cek = mysqli_query($conn, "SELECT * FROM petugas WHERE id_petugas='$id' ");
-	$auth = mysqli_num_rows($cek);
-	if($auth > 0){
-		mysqli_query($conn, "UPDATE petugas set nama_petugas='$nama', telp='$telp' WHERE id_petugas='$id'");
-		
-		header("Location:?berhasil=proses_ubah");
-	}else{
-		header("Location:?berhasil=keynotvalid");
-	}
 
-}
-function ubah_profil_user($nik, $nama, $telp)
-{
-	global $conn;
-	$cek = mysqli_query($conn, "SELECT * FROM masyarakat WHERE nik='$nik'");
-	$auth = mysqli_num_rows($cek);
-	if($auth > 0){
-		mysqli_query($conn, "UPDATE masyarakat set nama='$nama', telp='$telp' WHERE nik='$nik'");
-	
-		header("Location:?berhasil=proses_ubah");
-	}else{
-		header("Location:?berhasil=keynotvalid");
-	}
 
-}
-function ubah_pass($id_petugas, $pw1, $pw2)
-{
-	global $conn;
-	$cek = mysqli_query($conn, "SELECT * FROM petugas WHERE id_petugas='$id_petugas' ");
-	$auth = mysqli_num_rows($cek);
-	if($auth > 0){
-		if($pw1==$pw2){
-			mysqli_query($conn, "UPDATE petugas set password='$pw2' WHERE id_petugas='$id_petugas'");
-			header("Location:?page=pass&berhasil=passoke");
-		}else{
-			header("Location:?page=pass&berhasil=konf");
-		}
-	}else{
-		header("Location:?page=pass&berhasil=keynotvalid");
-	}
-}
-function ubah_pass_user($nik, $pw1, $pw2, $pass_now)
-{
-	global $conn;
-	$cek = mysqli_query($conn, "SELECT * FROM masyarakat WHERE nik='$nik' ");
-	$auth = mysqli_num_rows($cek);
-	if($auth > 0){
-		if($pw1==$pw2){
-			mysqli_query($conn, "UPDATE masyarakat set password='$pw2' WHERE nik='$nik'");
-			header("Location:?page=pass&berhasil=passoke");
-		}else{
-			header("Location:?page=pass&berhasil=konf");	
-		}
-	}else{
-		header("Location:?page=pass&berhasil=keynotvalid");
-	}
-}
+
+
 ?>
 

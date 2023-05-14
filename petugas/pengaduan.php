@@ -20,12 +20,7 @@ if(isset($_GET['hapus_pengaduan'])){
   hapus_pengaduan($_GET['hapus_pengaduan']);
 }
 
-if(isset($_GET['ubah_tanggapan'])) {
-  $petugas = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM tanggapan  inner join pengaduan ON tanggapan.id_pengaduan=pengaduan.id_pengaduan inner join masyarakat ON pengaduan.nik=masyarakat.nik where id_tanggapan='$_GET[ubah_tanggapan]'"));
-}
-if(isset($_POST['ubah_tanggapan'])){
-  ubah_tanggapan($_GET['ubah_tanggapan'], $_POST['tanggapan'], $_POST['status'], $petugas['nik'], $petugas['telp'], $petugas['isi_laporan'], $petugas['status']);
-}
+
 if(isset($_GET['proses'])){
   proses($_GET['proses']);
 }
@@ -166,28 +161,15 @@ if(isset($_GET['proses'])){
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="proses_oke"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-success">1 Pengaduan telah Selesai !</b></center>
-                      </div>
-                    </div>
+                      <script>
+                alert('1 pengaduan telah selesai');
+                document.location.href = 'pengaduan.php';
+                </script>
 <?php
   }
 }
 ?>
-<?php
-if(isset($_GET['berhasil'])){
-  if($_GET['berhasil']=="sip"){
-?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-primary">1 Pengaduan kembali di proses !</b></center>
-                      </div>
-                    </div>
-<?php
-  }
-}
-?>
+
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
@@ -262,11 +244,10 @@ $no = 1;
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="proses_hapus"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-warning">1 Pengaduan berhasil dihapus !</b></center>
-                      </div>
-                    </div>
+                     <script>
+                alert('1 pengaduan berhasil dihapus');
+                document.location.href = 'pengaduan.php';
+                </script>
 <?php
   }
 }
@@ -330,69 +311,8 @@ $no = 1;
 
       </div>
       <!-- End of Main Content -->
-<?php
-if(isset($_GET['ubah_tanggapan'])){?>
-  <script type="text/javascript">window.onload = function(){document.getElementById('tombol').click();}</script>
-  <input id="tombol" data-toggle="modal" data-target="#exampleModal" type="hidden">
-<?php
-  }
   
-?>
-      
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">detail dan edit</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
 
-        <form method="POST" action="">
-        <div class="form-group">
-                      <small>nama</small>
-                      <input value="<?php if(!empty($petugas)){ echo $petugas['nama']; }?>" type="text" name="tanggapan" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  placeholder="" readonly></textarea>
-                    </div>
-                  
-                    <div class="form-group">
-                      <small>nik</small>
-                      <input value="<?php if(!empty($petugas)){ echo $petugas['nik']; }?>" type="text" name="nik" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  placeholder="" readonly></textarea>
-                    </div>
-                    <div class="form-group">
-                      <small>telepon</small>
-                      <input value="<?php if(!empty($petugas)){ echo $petugas['telp']; }?>"  type="text" name="tanggapan" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  placeholder="Masukan Tanggapan" readonly></textarea>
-                    </div>
-                    <div class="form-group">
-                      <small>isi laporan</small>
-                      <input value="<?php if(!empty($petugas)){ echo $petugas['isi_laporan']; }?>" type="text" name="tanggapan" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  placeholder="Masukan Tanggapan" readonly></textarea>
-                    </div>
-                    <div class="form-group">
-                      <small>TANGGAPAN</small>
-                      <input value="<?php if(!empty($petugas)){ echo $petugas['tanggapan']; }?>" type="text" name="tanggapan" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp"  placeholder="Masukan Tanggapan"></textarea>
-                    </div>
-                    <div class="form-group">
-                      <small>FOTO</small>
-                      <td><img src="../uploads/<?php echo $petugas['foto'];?>" style="width: 100px;height: auto;"></td>
-                    </div>
-                    <div class="form-group">
-                      <small>STATUS</small>
-                      <select required="required" name="status" value="<?php if(!empty($petugas)){ echo $petugas['status']; }?>" class="form-control form-control-user" id="exampleInputPassword" placeholder="Level">
-                        <option value="selesai">selesai</option>
-                        <option value="proses">proses</option>
-                      </select>
-                    </div>
-
-      </div>
-      <div class="modal-footer">
-        <input type="submit" onclick="return confirm('Konfirmasi Perubahan ?');" name="ubah_tanggapan" value="Simpan Perubahan" class="btn btn-primary btn-user btn-block">
-      </div>
-      </form>
-     
-    </div>
-  </div>
-</div>
 
       <!-- Footer -->
       <footer class="sticky-footer bg-white">

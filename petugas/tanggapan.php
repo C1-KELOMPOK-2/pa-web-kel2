@@ -94,11 +94,12 @@ if(isset($_POST['tanggapi'])){
   if(isset($_GET['berhasil'])){
     if($_GET['berhasil']=="tanggapi"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-primary">Pengaduan <?php echo $datap['id_pengaduan'];?> berhasil ditanggapi !</b></center>
-                      </div>
-                    </div>
+                    
+
+                    <script>
+                alert('pengaduan berhasil di tanggapi');
+                document.location.href = 'tanggapan.php';
+                </script>
 <?php
     }
   }
@@ -107,11 +108,10 @@ if(isset($_POST['tanggapi'])){
   if(isset($_GET['berhasil'])){
     if($_GET['berhasil']=="duplikat"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-danger">Pengaduan <?php echo $datap['id_pengaduan'];?> Sudah Pernah ditanggapi !</b></center>
-                      </div>
-                    </div>
+                     <script>
+                alert('sudah pernah di tanggapi');
+                document.location.href = 'tanggapan.php';
+                </script>
 <?php
     }
   }

@@ -14,12 +14,6 @@ if (isset($_GET['logout'])) {
   exit();
 }
 
-if(isset($_GET['non'])){
-  non($_GET['non']);
-}
-if(isset($_GET['ap'])){
-  ap($_GET['ap']);
-}
 
 if(isset($_GET['ubah_masyarakat'])) {
   $masyarakat = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM masyarakat WHERE nik='$_GET[ubah_masyarakat]'"));
@@ -193,11 +187,10 @@ if(isset($_GET['hapus_masyarakat'])){
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="register"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-primary">Akun masyarakat Berhasil dibuat !</b></center>
-                      </div>
-                    </div>
+                      <script>
+                alert('akun berhasil ditambahkan');
+                document.location.href = 'masyarakat.php';
+                </script>
 <?php
   }
 }
@@ -232,11 +225,10 @@ if(isset($_GET['berhasil'])){
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="proses_ubah"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-primary">Data masyarakat berhasil diubah !</b></center>
-                      </div>
-                    </div>
+                     <script>
+                alert('akun berhasil diubah');
+                document.location.href = 'masyarakat.php';
+                </script>
 <?php
   }
 }
@@ -245,11 +237,10 @@ if(isset($_GET['berhasil'])){
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="proses_hapus"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-warning">1 masyarakat berhasil dihapus !</b></center>
-                      </div>
-                    </div>
+                   <script>
+                alert('akun berhasil dihapus');
+                document.location.href = 'masyarakat.php';
+                </script>
 <?php
   }
 }
@@ -276,7 +267,7 @@ if(isset($_GET['ubah_masyarakat'])){?>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Edit Data Masyarakat <?= "[NIK: ".$_GET['ubah_masyarakat']."]";?></h5>
+      <h5 class="modal-title" id="exampleModalLabel">Edit Data Masyarakat</h5>
      
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -331,7 +322,7 @@ if(isset($_GET['ubah_masyarakat'])){?>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
   <thead>
     <tr>
-      <th>ID</th>
+      <th>NIK</th>
       <th>Nama masyarakat</th>
       <th>Username</th>
       <th>Password</th>

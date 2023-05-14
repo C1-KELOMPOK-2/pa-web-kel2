@@ -219,11 +219,10 @@ if(isset($_GET['hapus_petugas'])){
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="register"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-primary">Akun Petugas Berhasil dibuat !</b></center>
-                      </div>
-                    </div>
+                  <script>
+                alert('akun berhasil ditambahkan');
+                document.location.href = 'admin.php';
+                </script>
 <?php
   }
 }
@@ -258,11 +257,10 @@ if(isset($_GET['berhasil'])){
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="proses_ubah"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-primary">Data petugas berhasil diubah !</b></center>
-                      </div>
-                    </div>
+                     <script>
+                alert('akun berhasil di ubah');
+                document.location.href = 'admin.php';
+                </script>
 <?php
   }
 }
@@ -271,11 +269,10 @@ if(isset($_GET['berhasil'])){
 if(isset($_GET['berhasil'])){
   if($_GET['berhasil']=="proses_hapus"){
 ?>
-                    <div class="form-group">
-                      <div class="small">
-                        <center><b align="center" class="text-warning">1 Petugas berhasil dihapus !</b></center>
-                      </div>
-                    </div>
+                      <script>
+                alert('akun berhasil dihapus');
+                document.location.href = 'admin.php';
+                </script>
 <?php
   }
 }
@@ -305,7 +302,7 @@ if(isset($_GET['ubah_petugas'])){?>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Data Petugas <?= "[ID: ".$_GET['ubah_petugas']."]";?></h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Data Petugas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
